@@ -10,7 +10,7 @@
 * You can define layout templates to be used as the layout while rendering other templates.
 * You can pass arbitrary objects to the template context (beside the model) for advanced scenarios.
 
-The library is a modified version of Volo.Abp.TextTemplating 3.3.1</Description>
+The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description>
         <Copyright>© 2013 - 2020 Volosoft. Open source license with LGPLv3.0</Copyright>
         <Version>0.7.1</Version>
         <Authors>axuno gGmbH</Authors>
