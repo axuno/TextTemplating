@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Axuno.TextTemplating;
 
-namespace System
+namespace Axuno.TextTemplating
 {
     /// <summary>
     /// Extension methods for String class.
@@ -241,7 +242,7 @@ namespace System
         /// </summary>
         public static string[] SplitToLines(this string str, StringSplitOptions options)
         {
-            return str.Split(Environment.NewLine, options);
+            return Split(str, Environment.NewLine, options);
         }
 
         /// <summary>

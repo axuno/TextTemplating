@@ -12,7 +12,7 @@
 
 The library is a modified version of Volo.Abp.TextTemplating 3.3.1</Description>
         <Copyright>© 2013 - 2020 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>0.7.0</Version>
+        <Version>0.7.1</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
@@ -33,7 +33,17 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1</Description>
       <DocumentationFile></DocumentationFile>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+      <OutputPath>bin\Release\</OutputPath>
+      <DocumentationFile>bin\Release\Axuno.TextTemplating.xml</DocumentationFile>
+      <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+      <Deterministic>true</Deterministic>
+      <PublishRepositoryUrl>true</PublishRepositoryUrl>
+      <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
     <ItemGroup>
+      <PackageReference Include="Axuno.VirtualFileSystem" Version="0.7.0" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="3.1.9" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.9" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.9" />
