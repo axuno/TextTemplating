@@ -48,6 +48,10 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
       <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.9" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.9" />
       <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.9" />
+      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
       <PackageReference Include="Scriban" Version="2.1.4" />
       <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
