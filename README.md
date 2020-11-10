@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/axuno/Axuno.TextTemplating/main/TextTemplating.png" width="64" alt="Logo">
+
 # Axuno.TextTemplating
 
 Text templating is used to dynamically render contents based on a template and a model.
