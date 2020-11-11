@@ -17,3 +17,7 @@ Modifications to the source code were made by axuno in 2020. Changes focused on:
 * use Microsoft DependencyInjection instead of [AutoFac](https://autofac.org/)
 * use .Net resource files for inline localization instead JSON files
 * change of namespaces
+
+### Get started
+* [![NuGet](https://img.shields.io/nuget/v/Axuno.TextTemplating.svg)](https://www.nuget.org/packages/Axuno.TextTemplating/) Install the NuGet package
+* Run the demo program included in the repo
