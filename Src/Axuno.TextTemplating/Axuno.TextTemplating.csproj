@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
         <Nullable>enable</Nullable>
         <Description>Text templating is used to dynamically render contents based on a template and a model.
 
@@ -12,7 +12,7 @@
 
 The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description>
         <Copyright>© 2013 - 2020 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>0.7.1</Version>
+        <Version>0.7.2</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
@@ -25,7 +25,8 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+        <PackageReleaseNotes>Initial release with .Net 5.0 framework added</PackageReleaseNotes>
+        <OutputType>Library</OutputType>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -40,6 +41,7 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
       <Deterministic>true</Deterministic>
       <PublishRepositoryUrl>true</PublishRepositoryUrl>
       <EmbedUntrackedSources>true</EmbedUntrackedSources>
+      <IncludeSymbols>true</IncludeSymbols>
     </PropertyGroup>
 
     <ItemGroup>

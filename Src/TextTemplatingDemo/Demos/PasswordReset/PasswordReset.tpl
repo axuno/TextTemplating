@@ -1,0 +1,1 @@
+﻿<a href="{{model.link}}">{{L "ResetMyPassword" model.link}}</a>

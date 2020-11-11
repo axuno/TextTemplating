@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>netcoreapp3.1;net50</TargetFrameworks>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Demos\EmailLayout\EmailLayout.tpl" />
+        <None Remove="Demos\WelcomeEmail\Templates\en.tpl" />
+        <None Remove="Demos\WelcomeEmail\Templates\es.tpl" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Demos\EmailLayout\EmailLayout.tpl">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Demos\WelcomeEmail\Templates\en.tpl" />
+        <EmbeddedResource Include="Demos\WelcomeEmail\Templates\es.tpl" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.9" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.9" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.9" />
+        <PackageReference Include="Scriban" Version="2.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Axuno.TextTemplating\Axuno.TextTemplating.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Localization\DemoResource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>DemoResource.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Localization\DemoResource.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>DemoResource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Demos\CustomRenderer\Custom.tpl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Demos\GlobalContext\GlobalContextUsage.tpl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Demos\Hello\Hello.tpl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Demos\PasswordReset\PasswordReset.tpl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>
