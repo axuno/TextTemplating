@@ -12,7 +12,7 @@
 
 The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description>
         <Copyright>© 2013 - 2020 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>0.7.2</Version>
+        <Version>0.8.0</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
@@ -25,7 +25,7 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>Initial release with .Net 5.0 framework added</PackageReleaseNotes>
+        <PackageReleaseNotes>Migration to Scriban v3.0.0</PackageReleaseNotes>
         <OutputType>Library</OutputType>
     </PropertyGroup>
 
@@ -45,7 +45,7 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Axuno.VirtualFileSystem" Version="0.7.0" />
+      <PackageReference Include="Axuno.VirtualFileSystem" Version="0.7.2" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="3.1.9" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.9" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.9" />
@@ -55,7 +55,7 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
-      <PackageReference Include="Scriban" Version="2.1.4" />
+      <PackageReference Include="Scriban" Version="3.0.0" />
       <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
     </ItemGroup>
 

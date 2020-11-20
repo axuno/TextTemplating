@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Scriban;
 using Scriban.Runtime;
@@ -37,5 +38,15 @@ namespace TextTemplatingDemo.Demos.CustomRenderer
 
             return args.Any() ? string.Join(" + ", args) + " = " + args.Sum() : "*Nothing to calculate*";
         }
+
+        public ScriptParameterInfo GetParameterInfo(int index)
+        {
+            return new ScriptParameterInfo(typeof(int), "arg" + index);
+        }
+
+        public int RequiredParameterCount => 0;
+        public int ParameterCount => 0;
+        public ScriptVarParamKind VarParamKind => ScriptVarParamKind.Direct;
+        public Type ReturnType => typeof(string);
     }
 }

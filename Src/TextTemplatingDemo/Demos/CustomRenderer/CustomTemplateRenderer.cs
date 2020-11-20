@@ -64,7 +64,7 @@ namespace TextTemplatingDemo.Demos.CustomRenderer
                     TryGetVariable =
                 (TemplateContext context, SourceSpan span, ScriptVariable variable, out object value) =>
                 {
-                    value = value = $"## Variable '{variable}' not found ##";
+                    value = $"## Variable '{variable}' not found ##";
                     return true;
                 };
 
