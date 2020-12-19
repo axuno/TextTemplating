@@ -17,25 +17,48 @@ namespace Axuno.TextTemplating
     /// </remarks>
     public class TemplateRenderer : ITemplateRenderer
     {
-        protected readonly ITemplateContentProvider _templateContentProvider;
-        protected readonly ITemplateDefinitionManager _templateDefinitionManager;
-        protected readonly IStringLocalizerFactory _stringLocalizerFactory;
+        /// <summary>
+        /// Gets the <see cref="ITemplateContentProvider"/>.
+        /// </summary>
+        protected readonly ITemplateContentProvider TemplateContentProvider;
+        /// <summary>
+        /// Gets the <see cref="ITemplateDefinitionProvider"/>.
+        /// </summary>
+        protected readonly ITemplateDefinitionManager TemplateDefinitionManager;
+        /// <summary>
+        /// Gets the <see cref="IStringLocalizerFactory"/>.
+        /// </summary>
+        protected readonly IStringLocalizerFactory StringLocalizerFactory;
 
+        /// <summary>
+        /// Creates a new instance of a <see cref="TemplateRenderer"/> class.
+        /// </summary>
+        /// <param name="templateContentProvider"></param>
+        /// <param name="templateDefinitionManager"></param>
+        /// <param name="stringLocalizerFactory"></param>
         public TemplateRenderer(
             ITemplateContentProvider templateContentProvider,
             ITemplateDefinitionManager templateDefinitionManager,
             IStringLocalizerFactory stringLocalizerFactory)
         {
-            _templateContentProvider = templateContentProvider;
-            _templateDefinitionManager = templateDefinitionManager;
-            _stringLocalizerFactory = stringLocalizerFactory;
+            TemplateContentProvider = templateContentProvider;
+            TemplateDefinitionManager = templateDefinitionManager;
+            StringLocalizerFactory = stringLocalizerFactory;
         }
 
+        /// <summary>
+        /// Renders a text template.
+        /// </summary>
+        /// <param name="templateName">The template name</param>
+        /// <param name="model">An optional model object that is used in the template.</param>
+        /// <param name="cultureName">Culture name. Uses the <see cref="CultureInfo.CurrentUICulture"/> if not specified</param>
+        /// <param name="globalContext">A dictionary which can be used to import global objects to the template</param>
+        /// <returns>Returns the rendered text template.</returns>
         public virtual async Task<string> RenderAsync(
              string templateName,
-             object? model,
-             string? cultureName,
-             Dictionary<string, object>? globalContext)
+             object? model = null,
+             string? cultureName = null,
+             Dictionary<string, object>? globalContext = null)
         {
             globalContext ??= new Dictionary<string, object>();
 
@@ -58,12 +81,19 @@ namespace Axuno.TextTemplating
             }
         }
 
+        /// <summary>
+        /// Renders a text template.
+        /// </summary>
+        /// <param name="templateName">The template name</param>
+        /// <param name="model">An optional model object that is used in the template.</param>
+        /// <param name="globalContext">A dictionary which can be used to import global objects to the template</param>
+        /// <returns>Returns the rendered text template.</returns>
         protected virtual async Task<string> RenderInternalAsync(
             string templateName,
             Dictionary<string, object> globalContext,
             object? model = null)
         {
-            var templateDefinition = _templateDefinitionManager.Get(templateName);
+            var templateDefinition = TemplateDefinitionManager.Get(templateName);
             if (templateDefinition is null) throw new Exception($"Template name '{templateName}' not found.");
 
             var renderedContent = await RenderSingleTemplateAsync(
@@ -84,12 +114,19 @@ namespace Axuno.TextTemplating
             return renderedContent;
         }
 
+        /// <summary>
+        /// Renders a text template.
+        /// </summary>
+        /// <param name="templateDefinition">The template definition</param>
+        /// <param name="globalContext">A dictionary which can be used to import global objects to the template</param>
+        /// <param name="model">An optional model object that is used in the template.</param>
+        /// <returns>Returns the rendered text template.</returns>
         protected virtual async Task<string> RenderSingleTemplateAsync(
             TemplateDefinition templateDefinition,
             Dictionary<string, object> globalContext,
             object? model = null)
         {
-            var rawTemplateContent = await _templateContentProvider
+            var rawTemplateContent = await TemplateContentProvider
                 .GetContentAsync(
                     templateDefinition
                 );
@@ -102,6 +139,14 @@ namespace Axuno.TextTemplating
             );
         }
 
+        /// <summary>
+        /// Renders a text template with Scriban.
+        /// </summary>
+        /// <param name="templateDefinition">The template definition</param>
+        /// <param name="templateContent">The template content</param>
+        /// <param name="globalContext">A dictionary which can be used to import global objects to the template</param>
+        /// <param name="model">An optional model object that is used in the template.</param>
+        /// <returns>Returns the rendered text template.</returns>
         protected virtual async Task<string> RenderTemplateContentWithScribanAsync(
             TemplateDefinition templateDefinition,
             string? templateContent,
@@ -119,6 +164,13 @@ namespace Axuno.TextTemplating
                     .RenderAsync(context);
         }
 
+        /// <summary>
+        /// Creates a new Scriban <see cref="TemplateContext"/>.
+        /// </summary>
+        /// <param name="templateDefinition">The <see cref="TemplateDefinition"/>.</param>
+        /// <param name="globalContext">The global context.</param>
+        /// <param name="model">The model to render the template.</param>
+        /// <returns></returns>
         protected virtual TemplateContext CreateScribanTemplateContext(
             TemplateDefinition templateDefinition,
             Dictionary<string, object> globalContext,
@@ -145,7 +197,7 @@ namespace Axuno.TextTemplating
 
         private IStringLocalizer GetLocalizer(TemplateDefinition templateDefinition)
         {
-            return _stringLocalizerFactory.Create(templateDefinition.LocalizationResource ?? typeof(object));
+            return StringLocalizerFactory.Create(templateDefinition.LocalizationResource ?? typeof(object));
         }
     }
 }
