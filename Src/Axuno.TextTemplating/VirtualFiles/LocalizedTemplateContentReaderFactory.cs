@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Axuno.TextTemplating;
 using Axuno.TextTemplating.VirtualFiles;
+using Axuno.VirtualFileSystem;
 using Microsoft.Extensions.FileProviders;
 using Nito.AsyncEx;
 
@@ -59,9 +60,16 @@ namespace Axuno.TextTemplating.VirtualFiles
             }
 
             var fileInfo = VirtualFileProvider.GetFileInfo(virtualPath);
+            
             if (!fileInfo.Exists)
             {
-                throw new Exception("Could not find a file/folder at the location: " + virtualPath);
+                var directoryContents = VirtualFileProvider.GetDirectoryContents(virtualPath);
+                if (!directoryContents.Exists)
+                {
+                    throw new Exception("Could not find a file/folder at the location: " + virtualPath);
+                }
+
+                fileInfo = new VirtualDirectoryFileInfo(virtualPath, virtualPath, DateTimeOffset.UtcNow);
             }
 
             if (fileInfo.IsDirectory)

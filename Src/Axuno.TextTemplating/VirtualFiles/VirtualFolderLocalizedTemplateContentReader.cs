@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Axuno.TextTemplating.VirtualFiles;
 using Microsoft.Extensions.FileProviders;
 
 namespace Axuno.TextTemplating.VirtualFiles
@@ -15,13 +14,13 @@ namespace Axuno.TextTemplating.VirtualFiles
             IFileProvider virtualFileProvider, 
             string virtualPath)
         {
-            var directoryInfo = virtualFileProvider.GetFileInfo(virtualPath);
-            if (!directoryInfo.IsDirectory)
+            var directoryContents = virtualFileProvider.GetDirectoryContents(virtualPath);
+            if (!directoryContents.Exists)
             {
-                throw new Exception("Given virtual path is not a folder: " + virtualPath);
+                throw new Exception("Could not find a folder at the location: " + virtualPath);
             }
 
-            foreach (var file in virtualFileProvider.GetDirectoryContents(virtualPath))
+            foreach (var file in directoryContents)
             {
                 if (file.IsDirectory)
                 {

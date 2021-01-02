@@ -10,9 +10,9 @@
 * You can define layout templates to be used as the layout while rendering other templates.
 * You can pass arbitrary objects to the template context (beside the model) for advanced scenarios.
 
-The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description>
-        <Copyright>© 2013 - 2020 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>0.8.1</Version>
+The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
+        <Copyright>© 2013 - 2021 Volosoft. Open source license with LGPLv3.0</Copyright>
+        <Version>0.8.3</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
@@ -25,8 +25,11 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>Migration to Scriban v3.0.0</PackageReleaseNotes>
+        <PackageReleaseNotes>* Updated Nuget Package Scriban 3.3.2
+* Implemented fixes of Abp framework from commit https://github.com/abpframework/abp/commit/d495686fd2f6256abdeb0b6eacfd9f73d6f961f0</PackageReleaseNotes>
         <OutputType>Library</OutputType>
+        <AssemblyVersion>0.8.3.0</AssemblyVersion>
+        <FileVersion>0.8.3.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -46,17 +49,17 @@ The library is a modified version of Volo.Abp.TextTemplating 3.3.1 </Description
 
     <ItemGroup>
       <PackageReference Include="Axuno.VirtualFileSystem" Version="0.7.2" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="3.1.9" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.9" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="3.1.9" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.9" />
-      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.1" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="5.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.1" />
+      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Nito.AsyncEx" Version="5.1.0" />
-      <PackageReference Include="Scriban" Version="3.0.0" />
-      <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
+      <PackageReference Include="Scriban" Version="3.3.2" />
+      <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>

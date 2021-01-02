@@ -47,19 +47,19 @@ namespace Axuno.TextTemplating
             return args.Any() ? _localizer[name.ToString(), args] : _localizer[name.ToString()];
         }
 
-        public ScriptParameterInfo GetParameterInfo(int index)
-        {
-            switch (index)
-            {
-                case 0: return new ScriptParameterInfo(typeof(string), string.Empty);
-                default: return new ScriptParameterInfo(typeof(object), string.Empty);
-            }
-        }
-
         public int RequiredParameterCount => 0;
+        
         public int ParameterCount => 0;
+        
         public ScriptVarParamKind VarParamKind => ScriptVarParamKind.Direct;
 
         public Type ReturnType => typeof(string);
+        
+        public ScriptParameterInfo GetParameterInfo(int index)
+        {
+            return index == 0
+                ? new ScriptParameterInfo(typeof(string), "template_name")
+                : new ScriptParameterInfo(typeof(object), "value");
+        }
     }
 }
