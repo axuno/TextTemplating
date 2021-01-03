@@ -191,6 +191,8 @@ namespace Axuno.TextTemplating
             scriptObject.SetValue("L", new TemplateLocalizer(localizer), true);
 
             context.PushGlobal(scriptObject);
+            // Culture may have been changed by the CultureSwitcher of TextTemplating
+            context.PushCulture(CultureInfo.CurrentCulture);
 
             return context;
         }
