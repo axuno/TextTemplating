@@ -21,3 +21,4 @@ Modifications to the source code were made by axuno in 2020/21. Changes focused 
 ### Get started
 * [![NuGet](https://img.shields.io/nuget/v/Axuno.TextTemplating.svg)](https://www.nuget.org/packages/Axuno.TextTemplating/) Install the NuGet package
 * Run the demo program included in the repo
+* Read the Abp [Text Templating docs](https://docs.abp.io/en/abp/latest/Text-Templating)
