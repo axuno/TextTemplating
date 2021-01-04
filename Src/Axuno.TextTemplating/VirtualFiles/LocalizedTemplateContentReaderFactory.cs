@@ -2,11 +2,8 @@
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using Axuno.TextTemplating;
-using Axuno.TextTemplating.VirtualFiles;
 using Axuno.VirtualFileSystem;
 using Microsoft.Extensions.FileProviders;
-using Nito.AsyncEx;
 
 namespace Axuno.TextTemplating.VirtualFiles
 {
