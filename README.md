@@ -9,8 +9,8 @@ Text templating is used to dynamically render contents based on a template and a
 * You can define layout templates to be used as the layout while rendering other templates.
 * You can pass arbitrary objects to the template context (beside the model) for advanced scenarios.
 
-The library is a modified version of [Volo.Abp.TextTemplating](https://github.com/abpframework/abp/tree/dev/framework/src/Volo.Abp.TextTemplating/Volo/Abp/TextTemplating) 3.3.1
-Modifications to the source code were made by axuno in 2020. Changes focused on:
+The library is a modified version of [Volo.Abp.TextTemplating](https://github.com/abpframework/abp/tree/dev/framework/src/Volo.Abp.TextTemplating/Volo/Abp/TextTemplating) 4.1
+Modifications to the source code were made by axuno in 2020/21. Changes focused on:
 
 * decouple Volo.Abp.TextTemplating from all dependencies of the Abp Framework
 * replace the dependency Volo.Abp.VirtualFileSystem with a modified forked version of it ([Axuno.VirtualFileSystem](https://github.com/axuno/Axuno.VirtualFileSystem))
