@@ -33,7 +33,7 @@ namespace Axuno.TextTemplating.VirtualFiles
 
         public string? GetContent(string? cultureName)
         {
-            return cultureName is null ? null : _dictionary[cultureName];
+            return cultureName is null ? null : _dictionary.ContainsKey(cultureName) ? _dictionary[cultureName] : null;
         }
     }
 }

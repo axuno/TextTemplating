@@ -12,7 +12,7 @@
 
 The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <Copyright>© 2013 - 2021 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>0.8.6</Version>
+        <Version>1.0.0</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
@@ -20,17 +20,18 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <SignAssembly>true</SignAssembly>
         <DelaySign>false</DelaySign>
-        <AssemblyOriginatorKeyFile>Axuno.TextTemplating.pfx</AssemblyOriginatorKeyFile>
+        <!-- sn -k Axuno.TextTemplating.snk -->
+        <AssemblyOriginatorKeyFile>Axuno.TextTemplating.snk</AssemblyOriginatorKeyFile>
         <RepositoryUrl>https://github.com/axuno/Axuno.TextTemplating</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>* Updated Nuget Package Scriban 3.3.2
-* Implemented fixes of Abp framework from commit https://github.com/abpframework/abp/commit/d495686fd2f6256abdeb0b6eacfd9f73d6f961f0
-* Added SemaphoreSlimExtensions and removed Nito.AsyncEx dependency</PackageReleaseNotes>
+        <PackageReleaseNotes>* Updated to Scriban v3.3.3
+* Updated to Axuno.VirtualFileSysstem v1.0.0
+* Added unit tests</PackageReleaseNotes>
         <OutputType>Library</OutputType>
-        <AssemblyVersion>0.8.6.0</AssemblyVersion>
-        <FileVersion>0.8.6.0</FileVersion>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -49,16 +50,16 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Axuno.VirtualFileSystem" Version="0.7.2" />
+      <PackageReference Include="Axuno.VirtualFileSystem" Version="1.0.0" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="5.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.1" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.2" />
       <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="5.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.2" />
       <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban" Version="3.3.2" />
+      <PackageReference Include="Scriban" Version="3.3.3" />
       <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
     </ItemGroup>
 
@@ -67,6 +68,15 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <!-- Generate PublicKey: -->
+            <!-- Export public key: sn -p Axuno.TextTemplating.snk Axuno.TextTemplating.publickey -->
+            <!-- Display PublicKey: sn -tp Axuno.TextTemplating.publickey -->
+            <_Parameter1>Axuno.TextTemplating.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100d1a4e14b1bc90a8278973eb1fb32c4161de835aaa1e67b9e5f6dd4e7cedc5c12aa31cf43fd57659df045a1941bd4b0192247c8671312abe95c974deb5319e6a071d314d6368b7826f4281e15b5f67891b349fd52e7d1fd238813d7dd22e83ad21251547633da3bb1d3680956bdeca4840b45da7244287d9b0beef181dc59bbc9</_Parameter1>
+        </AssemblyAttribute>
     </ItemGroup>
 
 </Project>

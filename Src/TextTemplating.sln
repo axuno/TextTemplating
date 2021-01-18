@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextTemplatingDemo", "TextT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Axuno.TextTemplating", "Axuno.TextTemplating\Axuno.TextTemplating.csproj", "{80BB24DA-D843-4A91-A940-774F8975DABE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Axuno.TextTemplating.Tests", "Axuno.TextTemplating.Tests\Axuno.TextTemplating.Tests.csproj", "{D9178989-2E80-4A70-B6F8-8E70DDEDDCB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +23,10 @@ Global
 		{80BB24DA-D843-4A91-A940-774F8975DABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80BB24DA-D843-4A91-A940-774F8975DABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80BB24DA-D843-4A91-A940-774F8975DABE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0F3F97C-63EB-4947-BDAB-0C0B947AEB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0F3F97C-63EB-4947-BDAB-0C0B947AEB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0F3F97C-63EB-4947-BDAB-0C0B947AEB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0F3F97C-63EB-4947-BDAB-0C0B947AEB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9178989-2E80-4A70-B6F8-8E70DDEDDCB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9178989-2E80-4A70-B6F8-8E70DDEDDCB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9178989-2E80-4A70-B6F8-8E70DDEDDCB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9178989-2E80-4A70-B6F8-8E70DDEDDCB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
@@ -9,7 +8,7 @@ using Scriban.Syntax;
 
 namespace Axuno.TextTemplating
 {
-    public class TemplateLocalizer : IScriptCustomFunction
+    internal class TemplateLocalizer : IScriptCustomFunction
     {
         private readonly IStringLocalizer _localizer;
 
@@ -44,7 +43,7 @@ namespace Axuno.TextTemplating
             }
 
             var args = arguments.Skip(1).Where(x => x != null && !string.IsNullOrWhiteSpace(x.ToString())).ToArray();
-            return args.Any() ? _localizer[name.ToString(), args] : _localizer[name.ToString()];
+            return (args.Any() ? _localizer[name.ToString(), args] : _localizer[name.ToString()])!;
         }
 
         public int RequiredParameterCount => 0;

@@ -1,0 +1,1 @@
+﻿{{ L "HelloText" model.name}}, {{ L "HowAreYou" }}
