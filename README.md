@@ -2,6 +2,8 @@
 
 # Axuno.TextTemplating
 
+![](https://github.com/axuno/Axuno.TextTemplating/workflows/.NET/badge.svg)
+
 Text templating is used to dynamically render contents based on a template and a model.
 
 * It is based on the [Scriban library](https://github.com/lunet-io/scriban), so it supports conditional logics, loops and much more.
