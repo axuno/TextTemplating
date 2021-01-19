@@ -59,7 +59,7 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban" Version="3.3.3" />
+      <PackageReference Include="Scriban.Signed" Version="3.3.3" />
       <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
     </ItemGroup>
 
