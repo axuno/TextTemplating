@@ -43,7 +43,7 @@ namespace Axuno.TextTemplating
             }
 
             var args = arguments.Skip(1).Where(x => x != null && !string.IsNullOrWhiteSpace(x.ToString())).ToArray();
-            return (args.Any() ? _localizer[name.ToString(), args] : _localizer[name.ToString()])!;
+            return (args.Any() ? _localizer[name!.ToString(), args] : _localizer[name!.ToString()])!;
         }
 
         public int RequiredParameterCount => 0;
