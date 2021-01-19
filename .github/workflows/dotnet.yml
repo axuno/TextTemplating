@@ -17,11 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Go to solution
-      run: cd ./Src
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./Src/TextTemplating.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore ./Src/TextTemplating.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal ./Src/TextTemplating.sln
