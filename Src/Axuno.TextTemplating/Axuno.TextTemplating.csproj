@@ -12,7 +12,7 @@
 
 The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <Copyright>© 2013 - 2021 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>1.0.0</Version>
+        <Version>1.1.0</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
@@ -26,12 +26,10 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>* Updated to Scriban v3.3.3
-* Updated to Axuno.VirtualFileSysstem v1.0.0
-* Added unit tests</PackageReleaseNotes>
+        <PackageReleaseNotes>Replaced package Scriban with Scriban.Signed 3.3.3</PackageReleaseNotes>
         <OutputType>Library</OutputType>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-        <FileVersion>1.0.0.0</FileVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <FileVersion>1.1.0.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
