@@ -88,7 +88,7 @@ namespace Axuno.TextTemplating
         /// Gets index of nth occurrence of a char in a string.
         /// </summary>
         /// <param name="str">source string to be searched</param>
-        /// <param name="c">Char to search in <see cref="str"/></param>
+        /// <param name="c">Char to search in the source string</param>
         /// <param name="n">Count of the occurrence</param>
         public static int NthIndexOf(this string str, char c, int n)
         {
@@ -183,6 +183,14 @@ namespace Axuno.TextTemplating
             return str;
         }
 
+        /// <summary>
+        /// Replaces the first occurrence of the search string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="search"></param>
+        /// <param name="replace"></param>
+        /// <param name="comparisonType"></param>
+        /// <returns>Replaces the first occurrence of the search string and returns the result.</returns>
         public static string ReplaceFirst(this string str, string search, string replace, StringComparison comparisonType = StringComparison.Ordinal)
         {
             Check.NotNull(str, nameof(str));
@@ -193,7 +201,7 @@ namespace Axuno.TextTemplating
                 return str;
             }
 
-            return str.Substring(0, pos) + replace + str.Substring(pos + search.Length);
+            return str.Substring(0, pos) + replace + str[(pos + search.Length)..];
         }
 
         /// <summary>
@@ -263,7 +271,7 @@ namespace Axuno.TextTemplating
                 return useCurrentCulture ? str.ToLower() : str.ToLowerInvariant();
             }
 
-            return (useCurrentCulture ? char.ToLower(str[0]) : char.ToLowerInvariant(str[0])) + str.Substring(1);
+            return (useCurrentCulture ? char.ToLower(str[0]) : char.ToLowerInvariant(str[0])) + str[1..];
         }
 
         /// <summary>
@@ -399,21 +407,24 @@ namespace Axuno.TextTemplating
             return (T)Enum.Parse(typeof(T), value, ignoreCase);
         }
 
+        /// <summary>
+        /// Gets the <see cref="MD5"/> hash for a string.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>The <see cref="MD5"/> hash for the string.</returns>
         public static string ToMd5(this string str)
         {
-            using (var md5 = MD5.Create())
+            using var md5 = MD5.Create();
+            var inputBytes = Encoding.UTF8.GetBytes(str);
+            var hashBytes = md5.ComputeHash(inputBytes);
+
+            var sb = new StringBuilder();
+            foreach (var hashByte in hashBytes)
             {
-                var inputBytes = Encoding.UTF8.GetBytes(str);
-                var hashBytes = md5.ComputeHash(inputBytes);
-
-                var sb = new StringBuilder();
-                foreach (var hashByte in hashBytes)
-                {
-                    sb.Append(hashByte.ToString("X2"));
-                }
-
-                return sb.ToString();
+                sb.Append(hashByte.ToString("X2"));
             }
+
+            return sb.ToString();
         }
 
         /// <summary>
@@ -434,7 +445,7 @@ namespace Axuno.TextTemplating
                 return useCurrentCulture ? str.ToUpper() : str.ToUpperInvariant();
             }
 
-            return (useCurrentCulture ? char.ToUpper(str[0]) : char.ToUpperInvariant(str[0])) + str.Substring(1);
+            return (useCurrentCulture ? char.ToUpper(str[0]) : char.ToUpperInvariant(str[0])) + str[1..];
         }
 
         /// <summary>

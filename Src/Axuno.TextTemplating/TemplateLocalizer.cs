@@ -36,14 +36,14 @@ namespace Axuno.TextTemplating
                 return string.Empty;
             }
 
-            var name = arguments[0];
-            if (name == null || string.IsNullOrWhiteSpace(name.ToString()))
+            var name = arguments[0]?.ToString();
+            if (name == null || string.IsNullOrWhiteSpace(name))
             {
                 return string.Empty;
             }
 
             var args = arguments.Skip(1).Where(x => x != null && !string.IsNullOrWhiteSpace(x.ToString())).ToArray();
-            return (args.Any() ? _localizer[name!.ToString(), args] : _localizer[name!.ToString()])!;
+            return (args.Any() ? _localizer[name, args] : _localizer[name])!;
         }
 
         public int RequiredParameterCount => 0;

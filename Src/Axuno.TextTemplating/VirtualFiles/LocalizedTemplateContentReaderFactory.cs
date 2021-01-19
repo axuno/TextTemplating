@@ -15,11 +15,23 @@ namespace Axuno.TextTemplating.VirtualFiles
     /// </remarks>
     public class LocalizedTemplateContentReaderFactory : ILocalizedTemplateContentReaderFactory
     {
-        
+        /// <summary>
+        /// Gets the <see cref="IFileProvider"/>.
+        /// </summary>
         protected IFileProvider VirtualFileProvider { get; }
+        /// <summary>
+        /// Gets the reader cache.
+        /// </summary>
         protected ConcurrentDictionary<string, ILocalizedTemplateContentReader> ReaderCache { get; }
+        /// <summary>
+        /// The <see cref="SemaphoreSlim"/> synchronization object.
+        /// </summary>
         protected SemaphoreSlim SyncObj;
 
+        /// <summary>
+        /// CTOR.
+        /// </summary>
+        /// <param name="virtualFileProvider">The <see cref="IFileProvider"/> to use.</param>
         public LocalizedTemplateContentReaderFactory(IFileProvider virtualFileProvider)
         {
             VirtualFileProvider = virtualFileProvider;
@@ -27,6 +39,11 @@ namespace Axuno.TextTemplating.VirtualFiles
             SyncObj = new SemaphoreSlim(1, 1);
         }
 
+        /// <summary>
+        /// Gets the <see cref="ILocalizedTemplateContentReader"/> for the <see cref="TemplateDefinition"/>.
+        /// </summary>
+        /// <param name="templateDefinition">The <see cref="TemplateDefinition"/>.</param>
+        /// <returns>The <see cref="ILocalizedTemplateContentReader"/> for the <see cref="TemplateDefinition"/>.</returns>
         public virtual async Task<ILocalizedTemplateContentReader> CreateAsync(TemplateDefinition templateDefinition)
         {
             if (ReaderCache.TryGetValue(templateDefinition.Name, out var reader))
@@ -47,6 +64,11 @@ namespace Axuno.TextTemplating.VirtualFiles
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="ILocalizedTemplateContentReader"/> for the <see cref="TemplateDefinition"/>.
+        /// </summary>
+        /// <param name="templateDefinition">The <see cref="TemplateDefinition"/>.</param>
+        /// <returns>The <see cref="ILocalizedTemplateContentReader"/> for the <see cref="TemplateDefinition"/>.</returns>
         protected virtual async Task<ILocalizedTemplateContentReader> CreateInternalAsync(
             TemplateDefinition templateDefinition)
         {

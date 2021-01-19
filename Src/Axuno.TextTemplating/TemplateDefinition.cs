@@ -69,8 +69,8 @@ namespace Axuno.TextTemplating
         /// </summary>
         /// <param name="name">The name of the property.</param>
         /// <returns>
-        /// Returns the value in the <see cref="Properties"/> dictionary by given <see cref="name"/>,
-        /// or <see langword="null"/> if the given <see cref="name"/> is not present in the <see cref="Properties"/> dictionary.
+        /// Returns the value in the <see cref="Properties"/> dictionary by given index,
+        /// or <see langword="null"/> if the given index is not present in the <see cref="Properties"/> dictionary.
         /// </returns>
         public object? this[string name]
         {

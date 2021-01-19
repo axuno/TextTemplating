@@ -16,7 +16,7 @@ namespace TextTemplatingDemo
 {
     public class Program
     {
-        public static ServiceProvider Services = new ServiceCollection().BuildServiceProvider();
+        public static ServiceProvider Services { get; set; } = new ServiceCollection().BuildServiceProvider();
 
         private static void ConfigureServices(IServiceCollection services)
         {
@@ -35,7 +35,7 @@ namespace TextTemplatingDemo
             Services = services.BuildServiceProvider();
         }
 
-        static async Task Main(string[] args)
+        static async Task Main()
         {
             ConfigureServices(new ServiceCollection());
             
