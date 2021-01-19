@@ -16,7 +16,7 @@ namespace TextTemplatingDemo
 {
     public class Program
     {
-        public static ServiceProvider Services;
+        public static ServiceProvider Services = new ServiceCollection().BuildServiceProvider();
 
         private static void ConfigureServices(IServiceCollection services)
         {

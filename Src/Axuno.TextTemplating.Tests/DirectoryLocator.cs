@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Threading;
+
 #nullable enable
 namespace Axuno.TextTemplating.Tests
 {
@@ -16,7 +18,7 @@ namespace Axuno.TextTemplating.Tests
             var targetAssembly = classFromTargetAssembly.GetTypeInfo().Assembly;
 
             // Get name of the target project which we want to test
-            var projectName = targetAssembly.GetName().Name;
+            var projectName = targetAssembly.GetName().Name ?? throw new Exception("Assembly name is null");
 
             // Get currently executing test project path
             var applicationBasePath = AppContext.BaseDirectory;
@@ -26,6 +28,7 @@ namespace Axuno.TextTemplating.Tests
             do
             {
                 directoryInfo = directoryInfo.Parent;
+                if (directoryInfo == null) break;
 
                 var projectDirectoryInfo = new DirectoryInfo(directoryInfo.FullName);
                 if (projectDirectoryInfo.Exists)
@@ -37,7 +40,7 @@ namespace Axuno.TextTemplating.Tests
                     }
                 }
             }
-            while (directoryInfo.Parent != null || directoryInfo.Parent.FullName.EndsWith("\\" + projectName));
+            while (directoryInfo.Parent != null);
 
             throw new Exception($"Project root could not be located using the application root {applicationBasePath}.");
         }
