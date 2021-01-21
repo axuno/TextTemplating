@@ -6,7 +6,7 @@
 
 Text templating is used to dynamically render contents based on a template and a model.
 
-* It is based on the [Scriban library](https://github.com/lunet-io/scriban), so it supports conditional logics, loops and much more.
+* It is based on the [Scriban library](https://github.com/lunet-io/scriban), a language that supports conditional logics, loops and much more.
 * Template content can be localized.
 * You can define layout templates to be used as the layout while rendering other templates.
 * You can pass arbitrary objects to the template context (beside the model) for advanced scenarios.
