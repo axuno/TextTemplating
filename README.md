@@ -2,7 +2,7 @@
 
 # Axuno.TextTemplating
 
-![](https://github.com/axuno/Axuno.TextTemplating/workflows/.NET/badge.svg)
+![](https://github.com/axuno/Axuno.TextTemplating/workflows/build%20%2B%20test/badge.svg)
 
 Text templating is used to dynamically render contents based on a template and a model.
 
