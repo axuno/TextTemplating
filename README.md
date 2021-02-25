@@ -20,8 +20,8 @@ Modifications to the source code were made by axuno in 2020/21. Changes focused 
 * use .Net resource files for inline localization instead JSON files
 * change of namespaces
 
-### Get started
+### Getting started
 * [![NuGet](https://img.shields.io/nuget/v/Axuno.TextTemplating.svg)](https://www.nuget.org/packages/Axuno.TextTemplating/) Install the NuGet package
 * Run the demo program included in the repo
 * Read the [Scriban language](https://github.com/lunet-io/scriban) docs
-* Read the Abp [Text Templating docs](https://docs.abp.io/en/abp/latest/Text-Templating)
+* Read the [Text Templating wiki](https://github.com/axuno/Axuno.TextTemplating/wiki)
