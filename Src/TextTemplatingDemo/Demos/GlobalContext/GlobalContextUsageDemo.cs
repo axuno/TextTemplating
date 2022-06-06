@@ -4,28 +4,27 @@ using System.Threading.Tasks;
 using Axuno.TextTemplating;
 
 
-namespace TextTemplateDemo.Demos.GlobalContext
+namespace TextTemplateDemo.Demos.GlobalContext;
+
+public class GlobalContextUsageDemo
 {
-    public class GlobalContextUsageDemo
+    private readonly ITemplateRenderer _templateRenderer;
+
+    public GlobalContextUsageDemo(ITemplateRenderer templateRenderer)
     {
-        private readonly ITemplateRenderer _templateRenderer;
+        _templateRenderer = templateRenderer;
+    }
 
-        public GlobalContextUsageDemo(ITemplateRenderer templateRenderer)
-        {
-            _templateRenderer = templateRenderer;
-        }
+    public async Task RunAsync()
+    {
+        var result = await _templateRenderer.RenderAsync(
+            "GlobalContextUsage",
+            globalContext: new Dictionary<string, object>
+            {
+                {"myGlobalObject", "TEST VALUE"}
+            }
+        );
 
-        public async Task RunAsync()
-        {
-            var result = await _templateRenderer.RenderAsync(
-                "GlobalContextUsage",
-                globalContext: new Dictionary<string, object>
-                {
-                    {"myGlobalObject", "TEST VALUE"}
-                }
-            );
-
-            Console.WriteLine(result);
-        }
+        Console.WriteLine(result);
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace TextTemplateDemo.Demos.PasswordReset
+﻿namespace TextTemplateDemo.Demos.PasswordReset;
+
+public class PasswordResetModel
 {
-    public class PasswordResetModel
-    {
-        public string Link { get; set; } = string.Empty;
-    }
+    public string Link { get; set; } = string.Empty;
 }

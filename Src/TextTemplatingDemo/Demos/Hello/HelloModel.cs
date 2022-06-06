@@ -1,7 +1,6 @@
-﻿namespace TextTemplateDemo.Demos.Hello
+﻿namespace TextTemplateDemo.Demos.Hello;
+
+public class HelloModel
 {
-    public class HelloModel
-    {
-        public string Name { get; set; } = string.Empty;
-    }
+    public string Name { get; set; } = string.Empty;
 }

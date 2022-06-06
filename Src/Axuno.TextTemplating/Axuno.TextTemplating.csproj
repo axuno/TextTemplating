@@ -17,6 +17,7 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>latest</LangVersion>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <SignAssembly>true</SignAssembly>
         <DelaySign>false</DelaySign>

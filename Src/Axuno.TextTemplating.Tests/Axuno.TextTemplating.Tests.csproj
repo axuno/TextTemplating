@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <DelaySign>false</DelaySign>
   </PropertyGroup>
