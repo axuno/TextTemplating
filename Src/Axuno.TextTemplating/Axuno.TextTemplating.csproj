@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;net5.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;net60</TargetFrameworks>
         <Nullable>enable</Nullable>
         <Description>Text templating is used to dynamically render contents based on a template and a model.
 
@@ -11,7 +11,7 @@
 * You can pass arbitrary objects to the template context (beside the model) for advanced scenarios.
 
 The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
-        <Copyright>© 2013 - 2021 Volosoft. Open source license with LGPLv3.0</Copyright>
+        <Copyright>© 2013 - 2022 Volosoft. Open source license with LGPLv3.0</Copyright>
         <Version>1.1.0</Version>
         <Authors>axuno gGmbH</Authors>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
@@ -27,7 +27,7 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>Replaced package Scriban with Scriban.Signed 3.3.3</PackageReleaseNotes>
+        <PackageReleaseNotes>Replaced package Scriban with Scriban.Signed 5.4.6</PackageReleaseNotes>
         <OutputType>Library</OutputType>
         <AssemblyVersion>1.1.0.0</AssemblyVersion>
         <FileVersion>1.1.0.0</FileVersion>
@@ -49,17 +49,17 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Axuno.VirtualFileSystem" Version="1.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="5.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.2" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="5.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.2" />
-      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02">
+      <PackageReference Include="Axuno.VirtualFileSystem" Version="1.0.1" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.5" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.5" />
+      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban.Signed" Version="3.3.3" />
-      <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+      <PackageReference Include="Scriban.Signed" Version="5.4.6" />
+      <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
     </ItemGroup>
 
     <ItemGroup>

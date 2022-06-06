@@ -2,7 +2,6 @@
 using System.IO;
 using System.Reflection;
 
-#nullable enable
 namespace Axuno.TextTemplating.Tests;
 
 public class DirectoryLocator

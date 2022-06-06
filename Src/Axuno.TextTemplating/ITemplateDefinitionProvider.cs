@@ -1,11 +1,10 @@
-﻿namespace Axuno.TextTemplating
-{
-    public interface ITemplateDefinitionProvider
-    {
-        void PreDefine(ITemplateDefinitionContext context);
-        
-        void Define(ITemplateDefinitionContext context);
+﻿namespace Axuno.TextTemplating;
 
-        void PostDefine(ITemplateDefinitionContext context);
-    }
+public interface ITemplateDefinitionProvider
+{
+    void PreDefine(ITemplateDefinitionContext context);
+        
+    void Define(ITemplateDefinitionContext context);
+
+    void PostDefine(ITemplateDefinitionContext context);
 }
