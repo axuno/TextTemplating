@@ -1,32 +1,30 @@
-﻿using System.Collections.Generic;
-using Axuno.TextTemplating.VirtualFiles;
+﻿using Axuno.TextTemplating.VirtualFiles;
 
-namespace Axuno.TextTemplating
+namespace Axuno.TextTemplating;
+
+public static class TemplateDefinitionExtensions
 {
-    public static class TemplateDefinitionExtensions
+    public static TemplateDefinition WithVirtualFilePath(
+        this TemplateDefinition templateDefinition,
+        string virtualPath,
+        bool isInlineLocalized)
     {
-        public static TemplateDefinition WithVirtualFilePath(
-            this TemplateDefinition templateDefinition,
-            string virtualPath,
-            bool isInlineLocalized)
-        {
-            Check.NotNull(templateDefinition, nameof(templateDefinition));
+        Check.NotNull(templateDefinition, nameof(templateDefinition));
 
-            templateDefinition.IsInlineLocalized = isInlineLocalized;
+        templateDefinition.IsInlineLocalized = isInlineLocalized;
 
-            return templateDefinition.WithProperty(
-                VirtualFileTemplateContentContributor.VirtualPathPropertyName,
-                virtualPath
-            );
-        }
+        return templateDefinition.WithProperty(
+            VirtualFileTemplateContentContributor.VirtualPathPropertyName,
+            virtualPath
+        );
+    }
 
-        public static string? GetVirtualFilePath(
-            this TemplateDefinition templateDefinition)
-        {
-            Check.NotNull(templateDefinition, nameof(templateDefinition));
+    public static string? GetVirtualFilePath(
+        this TemplateDefinition templateDefinition)
+    {
+        Check.NotNull(templateDefinition, nameof(templateDefinition));
 
-            return templateDefinition
-                .Properties[VirtualFileTemplateContentContributor.VirtualPathPropertyName] as string;
-        }
+        return templateDefinition
+            .Properties[VirtualFileTemplateContentContributor.VirtualPathPropertyName] as string;
     }
 }

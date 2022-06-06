@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Axuno.TextTemplating
+namespace Axuno.TextTemplating;
+
+public interface ITemplateContentContributor
 {
-    public interface ITemplateContentContributor
-    {
-        Task<string?> GetAsync(TemplateContentContributorContext context);
-    }
+    Task<string?> GetAsync(TemplateContentContributorContext context);
 }

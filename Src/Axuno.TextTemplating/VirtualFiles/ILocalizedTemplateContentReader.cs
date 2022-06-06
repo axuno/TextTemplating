@@ -1,7 +1,6 @@
-﻿namespace Axuno.TextTemplating.VirtualFiles
+﻿namespace Axuno.TextTemplating.VirtualFiles;
+
+public interface ILocalizedTemplateContentReader
 {
-    public interface ILocalizedTemplateContentReader
-    {
-        public string? GetContent(string? culture);
-    }
+    public string? GetContent(string? culture);
 }

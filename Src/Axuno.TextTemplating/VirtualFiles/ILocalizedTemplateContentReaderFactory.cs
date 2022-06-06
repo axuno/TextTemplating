@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Axuno.TextTemplating.VirtualFiles
+namespace Axuno.TextTemplating.VirtualFiles;
+
+public interface ILocalizedTemplateContentReaderFactory
 {
-    public interface ILocalizedTemplateContentReaderFactory
-    {
-        Task<ILocalizedTemplateContentReader> CreateAsync(TemplateDefinition templateDefinition);
-    }
+    Task<ILocalizedTemplateContentReader> CreateAsync(TemplateDefinition templateDefinition);
 }

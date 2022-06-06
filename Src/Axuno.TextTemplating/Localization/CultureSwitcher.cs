@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Axuno.TextTemplating.Localization
+namespace Axuno.TextTemplating.Localization;
+
+public class CultureSwitcher : IDisposable
 {
-    public class CultureSwitcher : IDisposable
+    private readonly CultureInfo _originalCulture;
+    private readonly CultureInfo _originalUiCulture;
+
+    public CultureSwitcher(CultureInfo culture, CultureInfo uiCulture)
     {
-        private readonly CultureInfo _originalCulture;
-        private readonly CultureInfo _originalUiCulture;
+        _originalCulture = CultureInfo.CurrentCulture;
+        _originalUiCulture = CultureInfo.CurrentUICulture;
+        SetCulture(culture, uiCulture);
+    }
 
-        public CultureSwitcher(CultureInfo culture, CultureInfo uiCulture)
-        {
-            _originalCulture = CultureInfo.CurrentCulture;
-            _originalUiCulture = CultureInfo.CurrentUICulture;
-            SetCulture(culture, uiCulture);
-        }
+    private void SetCulture(CultureInfo culture, CultureInfo uiCulture)
+    {
+        CultureInfo.CurrentCulture = culture;
+        CultureInfo.CurrentUICulture = uiCulture;
+    }
 
-        private void SetCulture(CultureInfo culture, CultureInfo uiCulture)
-        {
-            CultureInfo.CurrentCulture = culture;
-            CultureInfo.CurrentUICulture = uiCulture;
-        }
-
-        public void Dispose()
-        {
-            SetCulture(_originalCulture, _originalUiCulture);
-        }
+    public void Dispose()
+    {
+        SetCulture(_originalCulture, _originalUiCulture);
     }
 }

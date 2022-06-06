@@ -1,44 +1,42 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Axuno.TextTemplating;
-using Axuno.VirtualFileSystem;
 
 
-namespace TextTemplateDemo.Demos.Hello
+namespace TextTemplateDemo.Demos.Hello;
+
+public class HelloDemo
 {
-    public class HelloDemo
+    private readonly ITemplateRenderer _templateRenderer;
+
+    public HelloDemo(ITemplateRenderer templateRenderer)
     {
-        private readonly ITemplateRenderer _templateRenderer;
+        _templateRenderer = templateRenderer;
+    }
 
-        public HelloDemo(ITemplateRenderer templateRenderer)
-        {
-            _templateRenderer = templateRenderer;
-        }
+    public async Task RunAsync()
+    {
+        var result = await _templateRenderer.RenderAsync(
+            "Hello", //the template name
+            new HelloModel
+            {
+                Name = "John"
+            }
+        );
 
-        public async Task RunAsync()
-        {
-            var result = await _templateRenderer.RenderAsync(
-                "Hello", //the template name
-                new HelloModel
-                {
-                    Name = "John"
-                }
-            );
+        Console.WriteLine(result);
+    }
 
-            Console.WriteLine(result);
-        }
+    public async Task RunWithAnonymousModelAsync()
+    {
+        var result = await _templateRenderer.RenderAsync(
+            "Hello", //the template name
+            new
+            {
+                Name = "John"
+            }
+        );
 
-        public async Task RunWithAnonymousModelAsync()
-        {
-            var result = await _templateRenderer.RenderAsync(
-                "Hello", //the template name
-                new
-                {
-                    Name = "John"
-                }
-            );
-
-            Console.WriteLine(result);
-        }
+        Console.WriteLine(result);
     }
 }
