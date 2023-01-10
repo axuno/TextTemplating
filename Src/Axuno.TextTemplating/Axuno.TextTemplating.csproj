@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFrameworks>netstandard2.1;net60</TargetFrameworks>
         <Nullable>enable</Nullable>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <Description>Text templating is used to dynamically render contents based on a template and a model.
 
 * It is based on the Scriban library, so it supports conditional logics, loops and much more.
@@ -10,14 +11,11 @@
 * You can define layout templates to be used as the layout while rendering other templates.
 * You can pass arbitrary objects to the template context (beside the model) for advanced scenarios.
 
-The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
-        <Copyright>© 2013 - 2022 Volosoft. Open source license with LGPLv3.0</Copyright>
-        <Version>1.1.0</Version>
-        <Authors>axuno gGmbH</Authors>
+The library is a modified version of the lightweight TextTemplating.Scriban part of Volo.Abp.TextTemplating 7.0
+(i.e., exluding the more heavy TextTemplating.Razor).</Description>
         <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
         <PackageTags>text templating netstandard c#</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <LangVersion>latest</LangVersion>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <SignAssembly>true</SignAssembly>
         <DelaySign>false</DelaySign>
@@ -27,10 +25,9 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>Replaced package Scriban with Scriban.Signed 5.4.6</PackageReleaseNotes>
+        <PackageReleaseNotes>Bumped to v2.0.0
+Breaking changes caused by updated dependencies</PackageReleaseNotes>
         <OutputType>Library</OutputType>
-        <AssemblyVersion>1.1.0.0</AssemblyVersion>
-        <FileVersion>1.1.0.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -50,16 +47,16 @@ The library is a modified version of Volo.Abp.TextTemplating 4.1</Description>
 
     <ItemGroup>
       <PackageReference Include="Axuno.VirtualFileSystem" Version="1.0.1" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="6.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.5" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="6.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.5" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.1" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.1" />
       <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban.Signed" Version="5.4.6" />
-      <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
+      <PackageReference Include="Scriban.Signed" Version="5.5.2" />
+      <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
