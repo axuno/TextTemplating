@@ -46,30 +46,28 @@ public class TemplateDefinitionManager : ITemplateDefinitionManager
     {
         var templates = new Dictionary<string, TemplateDefinition>();
 
-        using (var scope = ServiceProvider.CreateScope())
+        using var scope = ServiceProvider.CreateScope();
+        var providers = Options
+            .DefinitionProviders
+            .Select(p => scope.ServiceProvider.GetRequiredService(p) as ITemplateDefinitionProvider)
+            .Where(p => !(p is null))
+            .ToList();
+
+        var context = new TemplateDefinitionContext(templates);
+
+        foreach (var provider in providers)
         {
-            var providers = Options
-                .DefinitionProviders
-                .Select(p => scope.ServiceProvider.GetRequiredService(p) as ITemplateDefinitionProvider)
-                .Where(p => !(p is null))
-                .ToList();
+            provider!.PreDefine(context);
+        }
 
-            var context = new TemplateDefinitionContext(templates);
+        foreach (var provider in providers)
+        {
+            provider!.Define(context);
+        }
 
-            foreach (var provider in providers)
-            {
-                provider!.PreDefine(context);
-            }
-
-            foreach (var provider in providers)
-            {
-                provider!.Define(context);
-            }
-
-            foreach (var provider in providers)
-            {
-                provider!.PostDefine(context);
-            }
+        foreach (var provider in providers)
+        {
+            provider!.PostDefine(context);
         }
 
         return templates;

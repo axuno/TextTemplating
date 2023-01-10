@@ -55,24 +55,45 @@ public class TemplateContentProvider : ITemplateContentProvider
             );
         }
 
-        using (var scope = ServiceScopeFactory.CreateScope())
+        using var scope = ServiceScopeFactory.CreateScope();
+        string? templateString = null;
+
+        if (cultureName == null && useCurrentCultureIfCultureNameIsNull)
         {
-            string? templateString = null;
+            cultureName = CultureInfo.CurrentUICulture.Name;
+        }
 
-            if (cultureName == null && useCurrentCultureIfCultureNameIsNull)
-            {
-                cultureName = CultureInfo.CurrentUICulture.Name;
-            }
+        var contributors = CreateTemplateContentContributors(scope.ServiceProvider);
 
-            var contributors = CreateTemplateContentContributors(scope.ServiceProvider);
+        //Try to get from the requested culture
+        templateString = await GetContentAsync(
+            contributors,
+            new TemplateContentContributorContext(
+                templateDefinition!,
+                scope.ServiceProvider,
+                cultureName
+            )
+        );
 
-            //Try to get from the requested culture
+        if (templateString != null)
+        {
+            return templateString;
+        }
+
+        if (!tryDefaults)
+        {
+            return null;
+        }
+
+        //Try to get from same culture without country code
+        if (cultureName != null && cultureName.Contains('-')) //Example: "tr-TR"
+        {
             templateString = await GetContentAsync(
                 contributors,
                 new TemplateContentContributorContext(
                     templateDefinition!,
                     scope.ServiceProvider,
-                    cultureName
+                    CultureHelper.GetBaseCultureName(cultureName)
                 )
             );
 
@@ -80,65 +101,42 @@ public class TemplateContentProvider : ITemplateContentProvider
             {
                 return templateString;
             }
+        }
 
-            if (!tryDefaults)
+        if (templateDefinition!.IsInlineLocalized)
+        {
+            //Try to get culture independent content
+            templateString = await GetContentAsync(
+                contributors,
+                new TemplateContentContributorContext(
+                    templateDefinition,
+                    scope.ServiceProvider,
+                    null
+                )
+            );
+
+            if (templateString != null)
             {
-                return null;
+                return templateString;
             }
-
-            //Try to get from same culture without country code
-            if (cultureName != null && cultureName.Contains("-")) //Example: "tr-TR"
+        }
+        else
+        {
+            //Try to get from default culture
+            if (templateDefinition.DefaultCultureName != null)
             {
-                templateString = await GetContentAsync(
-                    contributors,
-                    new TemplateContentContributorContext(
-                        templateDefinition!,
-                        scope.ServiceProvider,
-                        CultureHelper.GetBaseCultureName(cultureName)
-                    )
-                );
-
-                if (templateString != null)
-                {
-                    return templateString;
-                }
-            }
-
-            if (templateDefinition!.IsInlineLocalized)
-            {
-                //Try to get culture independent content
                 templateString = await GetContentAsync(
                     contributors,
                     new TemplateContentContributorContext(
                         templateDefinition,
                         scope.ServiceProvider,
-                        null
+                        templateDefinition.DefaultCultureName
                     )
                 );
 
                 if (templateString != null)
                 {
                     return templateString;
-                }
-            }
-            else
-            {
-                //Try to get from default culture
-                if (templateDefinition.DefaultCultureName != null)
-                {
-                    templateString = await GetContentAsync(
-                        contributors,
-                        new TemplateContentContributorContext(
-                            templateDefinition,
-                            scope.ServiceProvider,
-                            templateDefinition.DefaultCultureName
-                        )
-                    );
-
-                    if (templateString != null)
-                    {
-                        return templateString;
-                    }
                 }
             }
         }
