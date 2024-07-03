@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;net60</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;net60;net80</TargetFrameworks>
         <Nullable>enable</Nullable>
         <NoWarn>$(NoWarn);1591</NoWarn>
         <Description>Text templating is used to dynamically render contents based on a template and a model.
@@ -25,16 +24,13 @@ The library is a modified version of the lightweight TextTemplating.Scriban part
         <RepositoryType>Git</RepositoryType>
         <PackageIcon>TextTemplating.png</PackageIcon>
         <PackageProjectUrl>https://github.com/axuno/Axuno.TextTemplating</PackageProjectUrl>
-        <PackageReleaseNotes>Bumped to v2.0.0
-Breaking changes caused by updated dependencies</PackageReleaseNotes>
+        <PackageReleaseNotes></PackageReleaseNotes>
         <OutputType>Library</OutputType>
     </PropertyGroup>
-
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <DefineConstants>DEBUG;TRACE</DefineConstants>
       <DocumentationFile></DocumentationFile>
     </PropertyGroup>
-
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
       <OutputPath>bin\Release\</OutputPath>
       <DocumentationFile>bin\Release\Axuno.TextTemplating.xml</DocumentationFile>
@@ -44,35 +40,28 @@ Breaking changes caused by updated dependencies</PackageReleaseNotes>
       <EmbedUntrackedSources>true</EmbedUntrackedSources>
       <IncludeSymbols>true</IncludeSymbols>
     </PropertyGroup>
-
     <ItemGroup>
-      <PackageReference Include="Axuno.VirtualFileSystem" Version="2.0.1" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.2" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.2" />
-      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PackageReference Include="Axuno.VirtualFileSystem" Version="2.1.0" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.6" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.6" />
+      <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban.Signed" Version="5.5.2" />
-      <PackageReference Include="System.Collections.Immutable" Version="7.0.0" />
+      <PackageReference Include="Scriban.Signed" Version="5.10.0" />
+      <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
     </ItemGroup>
-
     <ItemGroup>
       <None Include="..\..\TextTemplating.png">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
     </ItemGroup>
-
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-            <!-- Generate PublicKey: -->
-            <!-- Export public key: sn -p Axuno.TextTemplating.snk Axuno.TextTemplating.publickey -->
-            <!-- Display PublicKey: sn -tp Axuno.TextTemplating.publickey -->
             <_Parameter1>Axuno.TextTemplating.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100d1a4e14b1bc90a8278973eb1fb32c4161de835aaa1e67b9e5f6dd4e7cedc5c12aa31cf43fd57659df045a1941bd4b0192247c8671312abe95c974deb5319e6a071d314d6368b7826f4281e15b5f67891b349fd52e7d1fd238813d7dd22e83ad21251547633da3bb1d3680956bdeca4840b45da7244287d9b0beef181dc59bbc9</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
-
 </Project>

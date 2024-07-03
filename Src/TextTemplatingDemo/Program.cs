@@ -35,45 +35,45 @@ public class Program
         Services = services.BuildServiceProvider();
     }
 
-    static async Task Main()
+    public static async Task Main()
     {
         ConfigureServices(new ServiceCollection());
             
         // This will return the renderer registered as the last
         var renderer = Services.GetRequiredService<ITemplateRenderer>();
 
-        Console.WriteLine("*** Hello Template from TemplateContentProider ***");
+        Console.WriteLine(@"*** Hello Template from TemplateContentProider ***");
         var templateContentDemo = Services.GetRequiredService<ITemplateContentProvider>();
         Console.WriteLine(await templateContentDemo.GetContentAsync("Hello")); 
         Console.WriteLine();
 
-        Console.WriteLine("*** Rendering Hello Template with class model ***");
+        Console.WriteLine(@"*** Rendering Hello Template with class model ***");
         await new HelloDemo(renderer).RunAsync();
-        Console.WriteLine("*** Rendering Hello Template with anonymous model ***");
+        Console.WriteLine(@"*** Rendering Hello Template with anonymous model ***");
         await new HelloDemo(renderer).RunWithAnonymousModelAsync();
         Console.WriteLine();
 
-        Console.WriteLine("*** Rendering from Global context ***");
+        Console.WriteLine(@"*** Rendering from Global context ***");
         await new TextTemplateDemo.Demos.GlobalContext.GlobalContextUsageDemo(renderer).RunAsync();
         Console.WriteLine();
 
-        Console.WriteLine("*** Rendering Password Reset Template (localized inline) ***");
-        Console.WriteLine("*** English ***");
+        Console.WriteLine(@"*** Rendering Password Reset Template (localized inline) ***");
+        Console.WriteLine(@"*** English ***");
         await new PasswordResetDemo(renderer).RunAsync("en");
-        Console.WriteLine("*** German ***");
+        Console.WriteLine(@"*** German ***");
         await new PasswordResetDemo(renderer).RunAsync("de");
         Console.WriteLine();
 
-        Console.WriteLine("*** Separate WelcomeEmail Templates from embedded resources, with Layout (localized) ***");
+        Console.WriteLine(@"*** Separate WelcomeEmail Templates from embedded resources, with Layout (localized) ***");
         Console.WriteLine();
-        Console.WriteLine("*** English ***");
+        Console.WriteLine(@"*** English ***");
         await new WelcomeEmailDemo(renderer).RunAsync("en");
         Console.WriteLine();
-        Console.WriteLine("*** Spanish ***");
+        Console.WriteLine(@"*** Spanish ***");
         await new WelcomeEmailDemo(renderer).RunAsync("es");
         Console.WriteLine();
 
-        Console.WriteLine("*** Custom renderer demo ***");
+        Console.WriteLine(@"*** Custom renderer demo ***");
         await new CustomRendererDemo(Services).RunAsync();
         Console.WriteLine();
     }
@@ -83,7 +83,7 @@ public class Program
         get
         {
             var location = Assembly.GetExecutingAssembly().Location;
-            UriBuilder uri = new UriBuilder(location);
+            var uri = new UriBuilder(location);
             var path = Uri.UnescapeDataString(uri.Path);
             return Path.GetDirectoryName(path)!;
         }

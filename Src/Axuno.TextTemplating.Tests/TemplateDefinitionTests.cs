@@ -19,18 +19,18 @@ namespace Axuno.TextTemplating.Tests
         public void Should_Retrieve_Template_Definition_By_Name()
         {
             var welcomeEmailTemplate = _templateDefinitionManager.Get(Templates.WelcomeEmail);
-            Assert.AreEqual(Templates.WelcomeEmail, welcomeEmailTemplate?.Name);
-            Assert.IsFalse(welcomeEmailTemplate?.IsInlineLocalized);
+            Assert.That(welcomeEmailTemplate?.Name, Is.EqualTo(Templates.WelcomeEmail));
+            Assert.That(welcomeEmailTemplate?.IsInlineLocalized, Is.False);
             
             var sayHelloTemplate = _templateDefinitionManager.Get(Templates.SayHelloEmail);
-            Assert.AreEqual(Templates.SayHelloEmail, sayHelloTemplate?.Name);
-            Assert.IsTrue(sayHelloTemplate?.IsInlineLocalized);
+            Assert.That(sayHelloTemplate?.Name, Is.EqualTo(Templates.SayHelloEmail));
+            Assert.That(sayHelloTemplate?.IsInlineLocalized, Is.True);
         }
 
         [Test]
         public void Should_Get_Null_If_Template_Not_Found()
         {
-            Assert.IsNull(_templateDefinitionManager.Get("undefined-template"));
+            Assert.That(_templateDefinitionManager.Get("undefined-template"), Is.Null);
         }
 
         [Test]

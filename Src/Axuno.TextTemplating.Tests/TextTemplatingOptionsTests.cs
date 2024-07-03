@@ -20,6 +20,6 @@ public class TextTemplatingOptionsTests
     [Test]
     public void Should_Auto_Add_TemplateDefinitionProviders_To_Options()
     {
-        Assert.Contains(typeof(TestTemplateDefinitionProvider), _options.DefinitionProviders.ToList());
+        Assert.That(_options.DefinitionProviders.ToList(), Does.Contain(typeof(TestTemplateDefinitionProvider)));
     }
 }
