@@ -30,8 +30,8 @@ public class LocalizedTemplateContentReaderFactoryTests
 
         var reader = await localizedTemplateContentReaderFactory.CreateAsync(_templateDefinitionManager.Get(Templates.WelcomeEmail)!);
 
-        Assert.AreEqual(reader.GetContent("en"), "Welcome {{model.name}} to Axuno.TextTemplating!");
-        Assert.AreEqual(reader.GetContent("de"), "Willkommen, {{model.name}}, bei Axuno.TextTemplating!");
+        Assert.That(reader.GetContent("en"), Is.EqualTo("Welcome {{model.name}} to Axuno.TextTemplating!"));
+        Assert.That(reader.GetContent("de"), Is.EqualTo("Willkommen, {{model.name}}, bei Axuno.TextTemplating!"));
     }
 
     private class TestPhysicalVirtualFileProvider : IFileProvider
