@@ -41,17 +41,17 @@ The library is a modified version of the lightweight TextTemplating.Scriban part
       <IncludeSymbols>true</IncludeSymbols>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Axuno.VirtualFileSystem" Version="2.1.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="8.0.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.6" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="8.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.6" />
+      <PackageReference Include="Axuno.VirtualFileSystem" Version="2.2.0" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="9.0.6" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="9.0.6" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="9.0.6" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.6" />
       <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban.Signed" Version="5.10.0" />
-      <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
+      <PackageReference Include="Scriban.Signed" Version="6.2.1" />
+      <PackageReference Include="System.Collections.Immutable" Version="9.0.6" />
     </ItemGroup>
     <ItemGroup>
       <None Include="..\..\TextTemplating.png">
