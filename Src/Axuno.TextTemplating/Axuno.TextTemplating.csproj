@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.1;net6.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
         <Nullable>enable</Nullable>
         <NoWarn>$(NoWarn);1591</NoWarn>
         <Description>Text templating is used to dynamically render contents based on a template and a model.
@@ -42,16 +42,16 @@ The library is a modified version of the lightweight TextTemplating.Scriban part
     </PropertyGroup>
     <ItemGroup>
       <PackageReference Include="Axuno.VirtualFileSystem" Version="2.2.0" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="9.0.6" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="9.0.6" />
-      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="9.0.6" />
-      <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.6" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="9.0.9" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="9.0.9" />
+      <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="9.0.9" />
+      <PackageReference Include="Microsoft.Extensions.Localization" Version="9.0.9" />
       <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Scriban.Signed" Version="6.2.1" />
-      <PackageReference Include="System.Collections.Immutable" Version="9.0.6" />
+      <PackageReference Include="Scriban.Signed" Version="6.4.0" />
+      <PackageReference Include="System.Collections.Immutable" Version="9.0.9" />
     </ItemGroup>
     <ItemGroup>
       <None Include="..\..\TextTemplating.png">
