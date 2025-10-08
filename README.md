@@ -2,7 +2,7 @@
 
 # Axuno.TextTemplating
 
-[![build + test](https://github.com/axuno/Axuno.TextTemplating/workflows/build%20%2B%20test/badge.svg)](https://github.com/axuno/Axuno.TextTemplating/actions?query=workflow%3A%22build+%2B+test%22)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/axuno/TextTemplating/build_test.yml?branch=main&label=Build%2C%20Test)](https://github.com/axuno/TextTemplating/actions)
 
 Text templating is used to dynamically render contents based on a template and a model.
 
